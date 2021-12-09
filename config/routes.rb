@@ -4,4 +4,8 @@ Rails.application.routes.draw do
 
   get 'top' => 'homes#top'
 
+  resources :posts do
+    resources :post_comments, only: [:create, :destroy]
+  end
+
 end
