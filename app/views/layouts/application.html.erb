@@ -11,17 +11,33 @@
 
   <body>
     <header>
-      <header class="navbar navbar-expand-lg navbar-light bg-light">
+      <header class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="/">
             <span>モクナビ！</span>
           </a>
+          <ul class="navbar-nav ml-auto">
+
+            <% if user_signed_in? %>
+            <li><%= link_to user_path(current_user.id), class: "btn btn-link text-light" do %>
+             <i class="fas fa-home"></i>ホーム<% end %></li>
+
+            <li><%= link_to destroy_user_session_path, method: :delete, class: "btn btn-link text-light" do %>
+             <i class="fas fa-sign-out-alt"></i>ログアウト<% end %></li>
+
+             <% else %>
+
+             <li><%= link_to new_user_registration_path, class: "btn btn-link text-light" do %>
+             <i class="fas fa-user-plus"></i>新規登録<% end %></li>
+
+             <li><%= link_to new_user_session_path, class: "btn btn-link text-light" do %>
+             <i class="fas fa-sign-in-alt"></i>ログイン<% end %></li>
+            <% end %>
+
+          </ul>
         </div>
       </div>
     </header>
     <%= yield %>
-
-
-
   </body>
 </html>
