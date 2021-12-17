@@ -13,13 +13,13 @@
     <header>
       <header class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brand" >
             <span>モクナビ！</span>
           </a>
           <ul class="navbar-nav ml-auto">
 
             <% if user_signed_in? %>
-            <li><%= link_to user_path(current_user.id), class: "btn btn-link text-light" do %>
+            <li><%= link_to posts_path, class: "btn btn-link text-light" do %>
              <i class="fas fa-home"></i>ホーム<% end %></li>
 
             <li><%= link_to destroy_user_session_path, method: :delete, class: "btn btn-link text-light" do %>

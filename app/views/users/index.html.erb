@@ -1,1 +1,27 @@
-<h1>ユーザーページの投稿一覧</h1>
+<h1>ユーザープロフと投稿一覧</h1>
+
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class-"col-md-3">
+
+      <div class="sidebar-fixed">
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>名前</th>
+              <th><%= @user.name %></th>
+            </tr>
+            <tr>
+              <th>プロフィール</th>
+              <th><%= @user.text %></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+        <h3>投稿一覧</h3>
+    </div>
+  </div>
+</div>
