@@ -1,0 +1,26 @@
+<h1>新規投稿</h1>
+
+
+<%= form_with model: @post, url:posts_path, local:true do |f| %>
+
+  <table>
+    <tbody>
+      <tr>
+        <td>画像</td>
+        <td><%= f.attachment_field :image_id, multiple: true %></td>
+      </tr>
+      <tr>
+        <td>タイトル</td>
+        <td><%= f.text_field :title, autofocus: true %></td>
+      </tr>
+      <tr>
+        <td>内容</td>
+        <td><%= f.text_area :body %></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><%= f.submit "追加", class: "btn btn-primary" %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

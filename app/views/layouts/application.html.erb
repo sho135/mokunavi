@@ -25,6 +25,9 @@
              <li><%= link_to users_path, class: "btn btn-link text-light" do %>
              <i class="fas fa-solid fa-user"></i>マイページ<% end %></li>
 
+             <li><%= link_to new_post_path, class: "btn btn-link text-light" do %>
+             <i class="fas fa-pen"></i></i>新規投稿<% end %></li>
+
 
             <li><%= link_to destroy_user_session_path, method: :delete, class: "btn btn-link text-light" do %>
              <i class="fas fa-sign-out-alt"></i>ログアウト<% end %></li>
