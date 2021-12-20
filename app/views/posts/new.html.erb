@@ -6,16 +6,16 @@
   <table>
     <tbody>
       <tr>
-        <td>画像</td>
-        <td><%= f.attachment_field :post_images_images, multiple: true %></td>
-      </tr>
-      <tr>
         <td>タイトル</td>
         <td><%= f.text_field :title, autofocus: true %></td>
       </tr>
       <tr>
         <td>内容</td>
         <td><%= f.text_area :body %></td>
+      </tr>
+      <tr>
+        <td>画像</td>
+        <td><%= f.attachment_field :post_images_images, multiple: true %></td>
       </tr>
       <tr>
         <td></td>
