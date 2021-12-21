@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
 
+  get 'posts/new_add'
+
   resources :users
 
 end
