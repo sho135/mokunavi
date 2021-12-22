@@ -28,15 +28,24 @@
 
     <div class="col-md-8 offset-md-1">
         <h3>みんなの投稿</h3>
-        <div class="mx-auto">
-          <% @posts.each do |post| %>
-          <%= link_to user_path(post.user) do %>
-          <%= attachment_image_tag post.user, :image, :fill, 50, 50, fallback: "no_image.jpg" %>
+        <table>
+          <thead>
+            <th></th>
+          </thead>
+          <tbody>
+            <% @posts.each do |post| %>
+          </tbody>
+            <tr>
+              <td>
+                <%= link_to user_path(post.user) do %>
+                <%= attachment_image_tag post.user, :image, :fill, 50, 50, fallback: "no_image.jpg" %>
+                <% end %>
+              </td>
+              <td><%= link_to post.title, post_path(post.id) %></td>
+              <td><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></td>
+            </tr>
           <% end %>
-          <p><%= link_to post.title, post_path(post.id) %></p>
-          <p><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></p>
-          <% end %>
-        </div>
+        </table>
     </div>
   </div>
 </div>

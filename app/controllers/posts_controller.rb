@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   end
 
   def new_add
+    @post = Post.find(params[:id])
     @post_new = Post.new
   end
 
@@ -34,6 +35,11 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    if @post.user == current_user
+      render "edit"
+    else
+      redirect_to posts_path
+    end
   end
 
   def update

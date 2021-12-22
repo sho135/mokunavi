@@ -1,26 +1,53 @@
-<div class="container">
-    <div class="container">
-        <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class-"col-md-3">
 
-          <h1>プロフィール確認</h1>
-
-          <div>
-            <%= attachment_image_tag @user, :image_id, :fill, 100, 100, fallback: "no_image.jpg" %>
-            <table class="table">
-              <tbody>
-                <tr>
-                  <th>名前</th>
-                  <th><%= @user.name %></th>
-                </tr>
-                <tr>
-                  <th>プロフィール</th>
-                  <th><%= @user.text %></th>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-
-        </div>
+      <div class="sidebar-fixed">
+        <%= attachment_image_tag @user, :image_id, :fill, 100, 100, fallback: "no_image.jpg" %>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>名前</th>
+              <th><%= @user.name %></th>
+            </tr>
+            <tr>
+              <th>プロフィール</th>
+              <th><%= @user.text %></th>
+            </tr>
+            <tr>
+              <th colspan="2">
+                <%= link_to edit_user_path(@user), class: 'btn btn-outline-secondary btn-block fas' do %>
+                <i class="fas fa-user-cog"></i>
+                <% end %>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
+
+    <div class="col-md-8 offset-md-1">
+        <h3><%= @user.name %>の投稿</h3>
+
+        <table>
+          <thead>
+            <th></th>
+          </thead>
+          <tbody>
+            <% @posts.each do |post| %>
+          </tbody>
+            <tr>
+              <td>
+                <%= link_to user_path(post.user) do %>
+                <%= attachment_image_tag post.user, :image, :fill, 50, 50, fallback: "no_image.jpg" %>
+                <% end %>
+              </td>
+              <td><%= link_to post.title, post_path(post.id) %></td>
+              <td><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></td>
+            </tr>
+          <% end %>
+        </table>
+
+    </div>
+  </div>
 </div>
