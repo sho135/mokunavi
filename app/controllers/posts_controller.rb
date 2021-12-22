@@ -52,6 +52,13 @@ class PostsController < ApplicationController
     redirect_to users_path
   end
 
+  def search
+    @user = current_user
+    @posts = Post.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index_search"
+  end
+
 
 
   private

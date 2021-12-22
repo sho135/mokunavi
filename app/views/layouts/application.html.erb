@@ -19,6 +19,13 @@
           <ul class="navbar-nav ml-auto">
 
             <% if user_signed_in? %>
+            
+            <div class="search-form">
+              <%= form_with url: search_path, method: :get, local: true do |f| %>
+                <%= f.text_field :keyword, value: @keyword %>
+                <%= f.submit "検索" %>
+              <% end %>
+            </div>
             <li><%= link_to posts_path, class: "btn btn-link text-light" do %>
              <i class="fas fa-home"></i>ホーム<% end %></li>
 

@@ -1,5 +1,9 @@
 class Post < ApplicationRecord
 
+def self.search(keyword)
+  where(["title like? OR body like?", "%#{keyword}%", "%#{keyword}%"])
+end
+
 belongs_to :user
 
 has_many :post_images, dependent: :destroy
