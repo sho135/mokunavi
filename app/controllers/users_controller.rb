@@ -6,14 +6,6 @@ class UsersController < ApplicationController
     @posts = @user.posts
   end
 
-  def index
-    @user = current_user
-    @users = User.all
-    @posts = Post.all
-
-
-  end
-
   def edit
     @user = User.find(params[:id])
     if @user != current_user
@@ -34,7 +26,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :text, :image_id)
+    params.require(:user).permit(:name, :text, :image)
   end
 
 end

@@ -8,12 +8,13 @@ Rails.application.routes.draw do
 
 
   resources :posts do
+    resources :post_images, only: [:new, :create, :destroy, :edit, :update]
     resources :post_comments, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
   end
 
   get 'posts/new_add'
 
-  resources :users
+  resources :users, only: [:show, :edit, :update]
 
 end

@@ -34,16 +34,14 @@
         <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-light btn-circle pull-right" %>
         <% end %>
       <div class="mx-auto">
-        <% if @post.post_images.present? %>
+        <p><%= @post.body %></p>
         <% @post.post_images.each do |image| %>
           <%= attachment_image_tag image, :image, :fill, 200, 200, format: 'jpeg' %>
         <% end %>
-        <% else %>
-          画像はありません。
-        <% end %>
+        <p><%= @post_image.body %></p>
       </div>
-        <p><%= @post.body %></p>
-        <%= link_to "+", posts_new_add_path, class: "btn btn-light btn-circle pull-right" %>
+
+        <%= link_to "+", new_post_post_image_path(@post), class: "btn btn-light btn-circle pull-right" %>
 
         <div>
           <p>コメント件数：<%= @post.post_comments.count %></p>

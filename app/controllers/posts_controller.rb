@@ -29,6 +29,7 @@ class PostsController < ApplicationController
   def show
     @user = current_user
     @post = Post.find(params[:id])
+    @post_image = PostImage.new
     @post_comment = PostComment.new
 
   end
@@ -70,7 +71,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, post_images_images: [])
+    params.require(:post).permit(:title, :body)
   end
 
 end
