@@ -12,7 +12,7 @@
         <% if @post.post_images.present? %>
         <% @post.post_images.each do |image| %>
           <%= attachment_image_tag image, :image, :fill, 100, 100, format: 'jpeg' %>
-          <p><%= @post_image.body %></p>
+          <p><%= @post_image.text %></p>
         <% end %>
         <% else %>
           画像はありません。

@@ -3,7 +3,7 @@
     <div class-"col-md-3">
 
       <div class="sidebar-fixed">
-        <%= attachment_image_tag @user, :image_id, :fill, 100, 100, fallback: "no_image.jpg" %>
+        <%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg" %>
         <table class="table">
           <tbody>
             <tr>
@@ -29,10 +29,15 @@
     <div class="col-md-8 offset-md-1">
       <h4><%= @post.title %></h4>
       <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+
+        <% if @post.user == current_user %>
         <%= link_to "編集する", edit_post_path(@post), class: "btn btn-light btn-circle pull-right" %>
+        <% end %>
+
         <% if @post.user == current_user %>
         <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-light btn-circle pull-right" %>
         <% end %>
+
       <div class="mx-auto">
         <p><%= @post.body %></p>
         <% @post.post_images.each do |image| %>
@@ -41,9 +46,12 @@
         <% end %>
       </div>
 
+        <% if @post.user == current_user %>
         <%= link_to "+", new_post_post_image_path(@post), class: "btn btn-light btn-circle pull-right" %>
+        <% end %>
 
       <div>
+
         <p>コメント件数：<%= @post.post_comments.count %></p>
           <% @post.post_comments.each do |post_comment| %>
           <%= post_comment.user.name %>
