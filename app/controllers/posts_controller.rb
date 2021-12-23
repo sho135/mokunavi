@@ -29,6 +29,8 @@ class PostsController < ApplicationController
   def show
     @user = current_user
     @post = Post.find(params[:id])
+    # @post_images = @post.post_images
+    # @post_images = PostImage.where(post_id: @post.id)
     @post_image = PostImage.new
     @post_comment = PostComment.new
 
