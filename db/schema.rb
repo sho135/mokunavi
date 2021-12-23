@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_12_17_123006) do
     t.integer "user_id"
     t.integer "post_id", null: false
     t.string "image_id"
-    t.text "body"
+    t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_post_images_on_post_id"

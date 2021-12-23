@@ -11,34 +11,33 @@
         <p><%= @post.body %></p>
         <% if @post.post_images.present? %>
         <% @post.post_images.each do |image| %>
-          <%= attachment_image_tag image, :image, :fill, 200, 200, format: 'jpeg' %>
+          <%= attachment_image_tag image, :image, :fill, 100, 100, format: 'jpeg' %>
+          <p><%= @post_image.body %></p>
         <% end %>
         <% else %>
           画像はありません。
         <% end %>
-        <p><%= @post_image.body %></p>
+
       </div>
 
       <%= form_with model: @post_image, url:post_post_images_path(@post), local:true do |f| %>
-
-  <table>
-    <tbody>
-      <tr>
-        <td>内容</td>
-        <td><%= f.text_area :body %></td>
-      </tr>
-      <tr>
-        <td>画像</td>
-        <td><%= f.attachment_field :image %></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><%= f.submit "投稿" %></td>
-      </tr>
-    </tbody>
-  </table>
-
-<% end %>
+      <table>
+        <tbody>
+          <tr>
+            <td>内容</td>
+            <td><%= f.text_area :text %></td>
+          </tr>
+          <tr>
+            <td>画像</td>
+            <td><%= f.attachment_field :image %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><%= f.submit "追加" %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
 </div>
 
 
