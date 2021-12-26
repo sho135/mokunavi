@@ -8,8 +8,8 @@
     <%= f.text_area :body %>
 
     <h4>画像</h4>
-    <% @post.post_images.each do |image| %>
-    <%= attachment_image_tag image, :image, :fill, 100, 100, format: 'jpeg' %>
+    <% @post.post_images.each do |post_image| %>
+    <%= attachment_image_tag post_image, :image, :fill, 100, 100, format: 'jpeg' %>
     <%= f.text_area :text %>
     <% end %>
     <p><%= f.submit "更新", class: "btn btn-success" %></p>

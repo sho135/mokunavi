@@ -38,6 +38,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    @post_images = PostImage.where(post_id: @post.id)
     if @post.user == current_user
       render "edit"
     else
