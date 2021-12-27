@@ -49,7 +49,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.user_id = current_user.id
-    if @post.update(post_params)
+    if @post.update(update_post_params)
       redirect_to post_path(@post)
     else
       render :edit
@@ -77,4 +77,8 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body, post_images_attributes: [:image, :text])
   end
 
+  def update_post_params
+    params.require(:post).permit(:title, :body, post_images_attributes: [:id, :image, :text])
+  end
+  
 end

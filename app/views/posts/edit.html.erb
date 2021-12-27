@@ -9,10 +9,15 @@
 
     <h4>画像</h4>
     <%# @post.post_images.each do |post_image| %>
-    <%= f.fields_for :post_images do |post_image| %>
-      <%#= attachment_image_tag post_image, :image, :fill, 100, 100, format: 'jpeg' %>
+    <%#= f.fields_for :post_images do |post_image| %>
+      
       <%#= post_image.attachment_field :image, placeholder: "画像", class: "form-control-file" %>
-      <%= post_image.text_area :text %>
+      <%#= attachment_image_tag post_image, :image, :fill, 100, 100 %>
+      <%= f.fields_for :post_images do |image| %>
+        <p><%= attachment_image_tag image.object, :image, :fill, 100, 100 %></p>
+        <P><%= image.file_field :image %></P>
+        <%= image.hidden_field :id, value: image.object.id %>
+        <p><%= image.text_area :text %></p>
     <% end %>
 
     <p><%= f.submit "更新", class: "btn btn-success" %></p>
