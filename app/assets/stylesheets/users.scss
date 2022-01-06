@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.sidebar_fixed {
+  position: sticky;
+  top: 60px;
+  margin-top: 30px;
+}
+
 .main-title {
   margin: 30px;
 }
