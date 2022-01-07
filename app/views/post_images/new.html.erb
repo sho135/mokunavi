@@ -1,43 +1,52 @@
-<h1>追加</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
-<div class="col-md-8 offset-md-1">
-  <h4><%= @post.title %></h4>
-      <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
-        <%= link_to "編集", edit_post_path(@post), class: "btn btn-light btn-circle pull-right" %>
-        <% if @post.user == current_user %>
-        <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-light btn-circle pull-right" %>
-        <% end %>
-      <div class="mx-auto">
-        <p><%= @post.body %></p>
-        <% if @post.post_images.present? %>
-        <% @post.post_images.each do |post_image| %>
-          <%= attachment_image_tag post_image, :image, :fill, 100, 100, format: 'jpeg' %>
-          <p><%= post_image.text %></p>
-        <% end %>
-        <% else %>
-          画像はありません
-        <% end %>
+      <h2 class="main-title">追加</h2>
 
+      <div class="col-md-8 offset-md-1">
+        <h4 class="main-title"><%= @post.title %></h4>
+          <div class="post-datetime">
+            投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %>
+              <%= link_to "編集", edit_post_path(@post), class: "btn btn-light btn-circle pull-right" %>
+              <% if @post.user == current_user %>
+              <%= link_to "削除", post_path(@post), method: :delete, class: "btn btn-light btn-circle pull-right" %>
+              <% end %>
+          <div>
+
+            <div class="mx-auto">
+              <p class="post-body"><%= @post.body %></p>
+              <% if @post.post_images.present? %>
+              <% @post.post_images.each do |post_image| %>
+                <%= attachment_image_tag post_image, :image, :fill, 100, 100, format: 'jpeg' %>
+                <p><%= post_image.text %></p>
+              <% end %>
+              <% else %>
+                <!--画像はありません-->
+              <% end %>
+            </div>
+
+            <%= form_with model: @post_image, url:post_post_images_path(@post), local:true do |f| %>
+
+            <div class="form-group">
+              <label for="user_image">画像</label><br>
+              <%= f.attachment_field :image %>
+            </div>
+            <div class="form-group">
+              <label for="user_image">内容</label><br>
+              <%= f.text_area :text %>
+            </div>
+            <div class="form-group">
+              <%= f.submit "追加", class: "btn btn-secondary" %>
+            </div>
+            <% end %>
       </div>
-
-      <%= form_with model: @post_image, url:post_post_images_path(@post), local:true do |f| %>
-      <table>
-        <tbody>
-          <tr>
-            <td>内容</td>
-            <td><%= f.text_area :text %></td>
-          </tr>
-          <tr>
-            <td>画像</td>
-            <td><%= f.attachment_field :image %></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><%= f.submit "追加" %></td>
-          </tr>
-        </tbody>
-      </table>
-    <% end %>
+    </div>
+  </div>
 </div>
+
+
+
+
 
 
