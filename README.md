@@ -23,10 +23,10 @@
 また、自分がその場所を訪れた時のルートをメモとして記録したり、それを共有することで他の人への助けになリます。
 
 ## 設計書
-###ER図
+### ER図
 <https://drive.google.com/file/d/1cv7Ak2E7g5QsmAKrymuEEyYrI_vHzZrw/view?usp=sharing>
 
-###ルーティング
+### ルーティング
 <https://docs.google.com/spreadsheets/d/10ItGw9vS3778g9_6ka6GMkI3bN0JP0LE/edit?usp=sharing&ouid=108723112114849394181&rtpof=true&sd=true>
 
 
