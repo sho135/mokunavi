@@ -1,47 +1,47 @@
 <div class="container">
-  <div class="row mb-5">
-    <div class="col-3">
-      <h2>新規登録</h2>
-    </div>
-  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2 class="main-title">アカウントを作成</h2>
 
-  <div class="row mb-3">
-    <div class="col-3">
-      <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+    <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="field">
-        <%= f.label :ユーザー名 %><br />
+      <div class="form-group">
+        <label for="user_name">ユーザー名</label><br>
         <%= f.text_field :name, autofocus: true %>
       </div>
 
-      <div class="field">
-        <%= f.label :メールアドレス %><br />
+      <div class="form-group">
+        <label for="user_email">メールアドレス</label><br>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       </div>
 
-      <div class="field">
-        <%= f.label :パスワード %>
-        <% if @minimum_password_length %>
+      <div class="form-group">
+        <label for="user_password">
+          パスワード
+          <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %>文字以上)</em>
-        <% end %><br />
+        <% end %></label><br>
         <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
 
-      <div class="field">
-        <%= f.label :パスワード（確認） %><br />
+      <div class="form-group">
+        <label for="user_password_check">パスワード（確認）</label><br>
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "新規登録" %>
+      <div class="form-group">
+        <%= f.submit "新規登録", class: "btn btn-secondary" %>
       </div>
     　<% end %>
+
+    　<span>登録済みの方は<%= link_to "こちら", new_user_session_path %></span>
+
     </div>
   </div>
+</div>
 
 
 
 
 
-    <%= render "devise/shared/links" %>

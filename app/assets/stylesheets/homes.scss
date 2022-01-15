@@ -2,6 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.main-visual {
+  width: 100%;
+  height: 300px;
+  margin-top: 30px;
+  background-image: url(trekking-g64970d175_640.jpg);
+}
+.main-visual-text {
+  padding: 30px;
+}
+
 .main {
   margin: 30px;
   padding: 30px;

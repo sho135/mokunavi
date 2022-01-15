@@ -1,36 +1,30 @@
 <div class="container">
   <div class="row">
     <div class="col-11 col-sm-10 col-lg-8 col-xl-6 mx-auto">
-      <div class="main">
-        <h2>モクナビ！</h2>
-      <P>
-        ようこそモクナビ！へ
-      </P>
-      <p>
-        ---モクナビとは？---
 
-      </p>
-      <p>目的地までのルートを共有し合うSNSサイトです！</p>
-      <p>
-        「調べてみよう」<br>
-        ・建物など確認しながら進みたい<br>
-        ・他の行き方を知りたい<br>
-        →誰かが投稿しているかも！
-      </p>
-      <p>
-        「投稿してみよう」<br>
-        ・行った記録として残したい<br>
-        ・自分のルートを教えたい<br>
-        →誰かの役に立てるかも！
-      </p>
+      <div class="main-visual">
+        <div class="main-visual-content">
+          <p class="main-visual-text">
+            安心して辿り着けるように。
+          </p>
+        </div>
+      </div>
+
+    <div class="main col-10 mx-auto">
+      <div class="row">
+        <div class="col text-center">
+          <h2>ようこそモクナビ！へ</h2>
+        </div>
       </div>
     </div>
 
     <div class="col-10 mx-auto">
       <div class="row">
         <div class="col text-center">
-          <%= link_to "ログイン", new_user_session_path, class:"btn btn-info" %>
-         <%= link_to "新規登録", new_user_registration_path, class:"btn btn-success" %>
+          <p>登録してルートを検索しよう</p>
+          <p><%= link_to "新規登録", new_user_registration_path, class:"btn btn-secondary" %></p>
+          <p>アカウントをお持ちの場合</p>
+          <p><%= link_to "ログイン", new_user_session_path, class:"btn btn-secondary" %></p>
         </div>
       </div>
     </div>
