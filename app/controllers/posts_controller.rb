@@ -27,8 +27,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @user = current_user
     @post = Post.find(params[:id])
+    @user = @post.user
     # @post_images = @post.post_images
     # @post_images = PostImage.where(post_id: @post.id)
     @post_image = PostImage.new
@@ -80,5 +80,5 @@ class PostsController < ApplicationController
   def update_post_params
     params.require(:post).permit(:title, :body, post_images_attributes: [:id, :image, :text])
   end
-  
+
 end

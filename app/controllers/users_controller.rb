@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
 
-  def show
-    @user = User.find_by(params[:id])
+  def index
     @user = current_user
     @post = Post.new
     @posts = @user.posts.page(params[:page]).reverse_order
+  end
 
+  def show
+    @user = User.find(params[:id])
+    @post = Post.new
+    @posts = @user.posts.page(params[:page]).reverse_order
   end
 
   def edit
