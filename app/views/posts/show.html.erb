@@ -3,7 +3,7 @@
     <div class-"col-md-3">
 
       <div class="sidebar_fixed">
-        <%= attachment_image_tag @user, :image, :fill, 150, 150, fallback: "no_image.jpg", size: "150x150" %>
+        <%= attachment_image_tag @user, :image, :fill, 120, 120, fallback: "no_image.jpg", size: "120x120" %>
         <table class="table">
           <tbody>
             <tr>
@@ -49,20 +49,24 @@
         <p class="post-body"><%= @post.body %></p>
         <% @post.post_images.each do |post_image| %>
           <%= attachment_image_tag post_image, :image, :fill, 200, 200, format: 'jpeg' %>
-          <p><%= post_image.text %></p>
+          <p class="post-text"><%= post_image.text %></p>
         <% end %>
       </div>
 
       <div>
         <p class="post-comments">コメント件数：<%= @post.post_comments.count %></p>
           <% @post.post_comments.each do |post_comment| %>
-          <%= post_comment.user.name %>：
-          <%= post_comment.comment %><%= post_comment.created_at.strftime('%Y/%m/%d') %>
-          <% if post_comment.user == current_user %>
-          <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
-          <% end %>
+            <p>
+              <%= post_comment.user.name %>：
+              <%= post_comment.comment %><br>
+              <%= post_comment.created_at.strftime('%Y/%m/%d') %>
+              <% if post_comment.user == current_user %>
+              <%= link_to "削除", post_post_comment_path(post_comment.post, post_comment), method: :delete %>
+              <% end %>
+            </p>
           <% end %>
       </div>
+
       <div class="post-form">
         <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
           <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>

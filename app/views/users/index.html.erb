@@ -3,7 +3,7 @@
     <div class-"col-md-3">
 
       <div class="sidebar_fixed">
-        <%= attachment_image_tag @user, :image, :fill, 150, 150, fallback: "no_image.jpg", size: "150x150" %>
+        <%= attachment_image_tag @user, :image, :fill, 120, 120, fallback: "no_image.jpg", size: "120x120" %>
         <table class="table">
           <tbody>
             <tr>
@@ -39,7 +39,7 @@
             <tr>
               <td>
                 <%= link_to user_path(post.user) do %>
-                <%= attachment_image_tag post.user, :image, :fill, 70, 70, fallback: "no_image.jpg", size: "70x70" %>
+                <%= attachment_image_tag post.user, :image, :fill, 60, 60, fallback: "no_image.jpg", size: "60x60" %>
                 <% end %>
               </td>
               <td><%= link_to post.title, post_path(post.id) %></td>
@@ -47,7 +47,7 @@
             </tr>
           <% end %>
         </table>
-        <%= paginate @posts %>
+        <p class="pagenate"><%= paginate @posts %></p>
     </div>
   </div>
 </div>
