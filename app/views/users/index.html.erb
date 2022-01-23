@@ -43,7 +43,7 @@
                 <% end %>
               </td>
               <td><%= link_to post.title, post_path(post.id) %></td>
-              <td><%= link_to "コメント#{post.post_comments.count}件", post_path(post.id) %></td>
+              <td><%#= link_to "コメント#{post.post_comments.count}件", post_path(post.id) %></td>
             </tr>
           <% end %>
         </table>
