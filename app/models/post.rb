@@ -12,4 +12,7 @@ accepts_attachments_for :post_images, attachment: :image
 
 has_many :post_comments, dependent: :destroy
 
+validates :title, presence: true
+validates :body, presence: true
+
 end
